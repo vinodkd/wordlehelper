@@ -7,7 +7,7 @@ function wordle_list(
 ){
     [...current_word_template].forEach(l => {
         if(not_in_word.includes(l)){
-            throw `$l is in the "Not in word" list`;
+            throw `${l} is in the "Not in word" list`;
         }
     });
 
