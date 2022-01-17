@@ -34,6 +34,7 @@
                 result = wordle_list(template,niwlist);
             }catch(e){
                 output.innerHTML = e;
+                return false;
             }
             output.innerHTML=result.join('\n');
             return false;
