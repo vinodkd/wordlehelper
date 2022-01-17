@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wordle Helper</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>    </head>
+    <script src="wh.js"></script>
+    <script>
+        function displayResult(form){
+            let output = document.getElementById("output");
+            if(output == null){
+                return false; // stop events
+            }
+            output.innerHTML=""; //clear previous output
+
+            if(form == null){
+                return false; // could not find form, but stop events
+            }
+
+            let template = form.template.value;
+            let niwlist = form.niwlist.value;
+
+            console.log(template,niwlist);
+
+            if(template == null || template == ""){
+                output.innerHTML = "Please enter a word template";
+                return false;
+            }
+            if(niwlist == null || niwlist == ""){
+                output.innerHTML = "Please enter the list of letters not in the word";
+                return false;
+            }
+            let result = wordle_list(template,niwlist);
+            output.innerHTML=result.join('\n');
+            return false;
+        }
+    </script>
+    <body>
+        <h1>Wordle Helper</h1>
+        <p>If you're like me, you'd die before conceding yet another try on wordle, and instead will try all possible combinations of allowed letters.</p>
+        <p>If so, this helper is what you need!</p>
+        <p>Just enter the current word "template" (see below) and the letters that wordle told you is not in the word, and you'll see all the possible combinations of allowed letters.</p>
+        <p>Most of them will not be actual words, but its saves you the trouble of doing it in your head (or on a separate scratch pad like me)</p>
+        <form action="#">
+            <table>
+                <tr>
+                    <td>
+                        <label for="template">Word Template</label>
+                        <input type="text" name="template"/>    
+                    </td>
+                    <td>
+                        <p>Here's how to build the word template, which is a 5 letter string:</p>
+                        <ul>
+                            <li>Add the letter in upper case for each Wordle Green letter, i.e. known letter in the correct position</li>
+                            <li>Add the letter in lower case for each Wordle Yellow letter, i.e, known letter in the wrong position. Combine your knowledge from multiple tries here; i.e., if you know that a letter is not in more than one position add it in lower case in all those positions</li>
+                            <li>Add a space for each yet unknown letter. Enter letters already known to be not in the word separately</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="notinword">Letters not in word</label>
+                        <input type="text" name="niwlist"/>
+                    </td>
+                    <td>
+                        <Enter letters that you know are not in the word, i.e, Wordle Black letters here as a string. Case doesnt matter.
+                    </td>
+                </tr>
+            </table>
+            <button onclick="displayResult(document.forms[0]);return false;">Go</button>
+        </form>
+        <h4>Output</h4>
+        <div id="output" width ="90%" height="100px" style="max-height:100px;overflow-y: auto;">Output here</div>
+    </body>
+</html>
