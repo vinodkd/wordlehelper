@@ -12,6 +12,7 @@ function wordle_list(
     });
 
     let allowed_letters = [];
+    not_in_word = not_in_word.toUpperCase();
     [..."ABCEDFGHIJKLMNOPQRSTUVWXYZ"].forEach(l => {
         if(! not_in_word.includes(l)){
             allowed_letters.push(l);
