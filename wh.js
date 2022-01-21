@@ -20,7 +20,7 @@ function wordle_list(
     });
 
     let candidate_words = [];
-    generate_suffixes(current_word_template,allowed_letters,0,candidate_words);
+    generate_suffixes([...current_word_template],allowed_letters,0,candidate_words);
     return candidate_words;
 }
 
