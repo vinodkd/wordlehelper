@@ -58,10 +58,10 @@
                     <p>Here's how to build the word template, which is a 5 letter string:</p>
                     <ul>
                         <li>Add the letter in upper case for each Wordle Green letter, i.e. known letter in the correct position</li>
-                        <li>Add the letter in lower case for each Wordle Yellow letter, i.e, known letter in the wrong position. Combine your knowledge from multiple tries here; i.e., if you know that a letter is not in more than one position add it in lower case in all those positions</li>
-                        <li>Add a space for each yet unknown letter. Enter letters already known to be not in the word separately</li>
+                        <li>Add the letter in lower case for each Wordle Yellow letter, i.e, known letter in the wrong position. If you have multiple letters that are yellow for a given position, list them using baces, like so "(bcd)". Combine your knowledge from multiple tries here; i.e., if you know that a letter is not in more than one position add it in lower case in all those positions</li>
+                        <li>Add a space, hypen or underscore for each yet unknown letter. Enter letters already known to be not in the word separately</li>
                     </ul>
-                    <p>Example: "hs  E" is the word template when your guesses lead to 'h' and 's' being in the wrong position, 'e' in the right one, and the rest unknown </p>
+                    <p>Example: "h(slk)  E" is the word template when your guesses lead to 'h' being wrong in position 1 (but in the word);'s','l' and 'k' being  wrong in position 2, 'e' being right in position 5, and the rest unknown </p>
                     <a href="javascript:void(0);" onclick="document.getElementById('template_help').style.display='none'">Close</a>
             </div>
             <div id="niwlist_help" style="display: none;">
