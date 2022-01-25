@@ -56,7 +56,7 @@ function wordle_list(
 function generate_suffixes(current_word_prefix,allowed_letters,index,candidate_words){
     // console.log("index:",index);
     if(index==5){
-        candidate_words.push(current_word_prefix.join(''));
+        candidate_words.push(current_word_prefix.join('').toLowerCase());
         return;
     }
     let l = current_word_prefix[index];
